@@ -1,0 +1,97 @@
+/*
+ Theme Name: Teleton
+ Description: Teleton - Pagina de donativos
+ Author: Lincy Gonzalez
+ Author URI: lincygonzalez.com
+*/
+
+h1, h2, h3, p{
+  color: #1E3186;
+}
+
+h2 {
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.col-md-4{
+  max-width: 33.3333% !important;
+}
+
+.col-md-6{
+  max-width: 50% !important;
+}
+
+.btn-language{
+  background-size: 117px 21px;
+  display: block;
+  float: right;
+  height: 21px;
+  overflow: hidden;
+  text-indent: 100%;
+  width: 117px;
+}
+
+.btn-logo{
+  background-size: 148px 89px;
+  background: url("../images/stateside_logo.png");
+  display: block;
+  height: 89px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-indent: 100%;
+  width: 148px;
+}
+
+.btn-language-english {
+  background: url("../images/btn_ingles.png");
+}
+
+.btn-language-spanish {
+  background: url("../images/btn_espannol.png");
+}
+
+.btn-winner{
+  display: block;
+  height: 228px;
+  overflow: hidden;
+  text-indent: -666em;
+  width: 185px;
+  text-align: center;
+}
+
+.btn-winner1{
+  background: url("../images/1st.jpg");
+}
+
+.btn-winner2{
+  background: url("../images/2nd.jpg");
+}
+
+.btn-winner3{
+  background: url("../images/3rd.jpg");
+}
+
+
+.bnt-icon{
+  background-size: 51px 51px;
+  border: 0 none;
+  display: block;
+  height: 51px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-indent: 100%;
+  width: 51px;
+}
+
+.bnt-facebook{
+  background: url("../images/btn_fb.png");
+}
+
+.btn-twitter{
+  background: url("../images/btn_tw.png");
+}
+
+footer p{
+  font-size: 0.6rem;
+}
