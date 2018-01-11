@@ -23,6 +23,13 @@ $app->get('/winner', function() use ($app) {
 });
 
 
+$app->get('/delete_winner', function() use ($app) {
+    $db = new DbHandler();
+    $winner = $db->deleteWinner($app->request->get('win'));
+    echoResponse(201, $winner);
+});
+
+
 /* POST: Create a new User*/
 $app->post('/user', 'authenticate', function() use ($app) {
     // check for required params
