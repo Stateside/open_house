@@ -1,8 +1,5 @@
 /*
- Theme Name: Teleton
- Description: Teleton - Pagina de donativos
  Author: Lincy Gonzalez
- Author URI: lincygonzalez.com
 */
 
 h1, h2, h3, p{
@@ -57,7 +54,7 @@ h2 {
   overflow: hidden;
   text-indent: -666em;
   width: 185px;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .btn-winner1{

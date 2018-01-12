@@ -57,7 +57,7 @@ class DbHandler {
             }
             return $response;
         } catch (PDOException $e) {
-            throw new ExcepcionApi("DB Error", $e->getMessage());
+            return 'Error: ' . $e->getMessage();
         }
     }
 
@@ -85,7 +85,7 @@ class DbHandler {
             }
             return $response;
         } catch (PDOException $e) {
-            throw new ExcepcionApi("DB Error", $e->getMessage());
+            return 'Error: ' . $e->getMessage();
         }
     }
 
@@ -105,7 +105,7 @@ class DbHandler {
             }
             return $response;
         } catch (PDOException $e) {
-            throw new ExcepcionApi("DB Error", $e->getMessage());
+            return 'Error: ' . $e->getMessage();
         }
     }
  

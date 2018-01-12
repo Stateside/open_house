@@ -1,14 +1,4 @@
-<?php
-header('Cache-Control: max-age=3600');
-include("packages/controller.php");
-/*
-if(Controller::getInstance()->isMobileDevice()){
-	$deviceText = Controller::getInstance()->mobile_user_agent_switch();
-}else{
-	 header('Location: https://donaciones.teletoncr.com/'); 
-	 exit;
-}*/
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Open House</title>
@@ -33,14 +23,20 @@ if(Controller::getInstance()->isMobileDevice()){
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 col-xs-4 mt-5">
-				<a href="sms:2034<?=$deviceText?>" class="btn-winner btn-winner3">WINNER 3</a>
+			<div class="col-md-4 mt-5 text-center">
+				<a href="#" id="win3" class="btn-winner btn-winner3">WINNER 3</a><br>
+				<a href="#" id="resetWinner3">Reset Winner 3</a>
+				<div id="dataWinner3"></div>
 			</div>
-			<div class="col-md-4 col-xs-4 mt-5">
-				<a href="sms:2033<?=$deviceText?>" class="btn-winner btn-winner2">WINNER 2</a>
+			<div class="col-md-4  mt-5 text-center">
+				<a href="#" id="win2" class="btn-winner btn-winner2">WINNER 2</a><br>
+				<a href="#" id="resetWinner2">Reset Winner 2</a>
+				<div id="dataWinner2"></div>
 			</div>
-			<div class="col-md-4 col-xs-4 mt-5">
-				<a href="sms:2031<?=$deviceText?>" class="btn-winner btn-winner1">WINNER 1</a>
+			<div class="col-md-4 mt-5 text-center">
+				<a href="#" id="win1" class="btn-winner btn-winner1">WINNER 1</a><br>
+				<a href="#" id="resetWinner1">Reset Winner 1</a>
+				<div id="dataWinner1"></div>
 			</div>
 		</div>
 	</div>
@@ -53,6 +49,5 @@ if(Controller::getInstance()->isMobileDevice()){
 			</div>
 		</div>
 	</footer>
-<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 </html>

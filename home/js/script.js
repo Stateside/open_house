@@ -1,29 +1,45 @@
-var apiGeolocationSuccess = function(position) {
-    $('#latitud').text( position.coords.latitude);
-    $('#longitud').text( position.coords.longitude);
-      $.post("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=false", function (result) {
-          for (var i = 0; i < result['results'][0]['address_components'].length; i++) {
-              if (result['results'][0]['address_components'][i]['types'][0] == "country") {
-                  localStorage.setItem('country', result['results'][0]['address_components'][i]['long_name']);
-                  if(result['results'][0]['address_components'][i]['long_name'] != "Costa Rica"){
-                    $(location).attr('href', 'https://donaciones.teletoncr.com/');
-                  }
-              }
-          }
+$( document ).ready(function() {
+    var setWinner = function(winner) {
+        $.get( "http://34.203.61.130/restapi/v1/winner?win="+winner, function(success) {
+            var obj = jQuery.parseJSON(JSON.stringify(success));
+            var text = "Name: " + obj.name + "<br>Last Name: " + obj.last_name +  "<br>Phone: " + obj.phone;
+            $( "#dataWinner"+winner).html( text );
+      })
+      .fail(function(err) {
+          alert(JSON.stringify(err));
+        console.log("API error! \n\n"+err);
       });
-  };
-
-  var tryAPIGeolocation = function() {
-      $.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyADCWKUxZpfdH_j72InmA67nJXGzEmUxLQ", function(success) {
-          apiGeolocationSuccess({coords: {latitude: success.location.lat, longitude: success.location.lng}});
-    })
-    .fail(function(err) {
-      console.log("API Geolocation error! \n\n"+err);
+  }; 
+  
+  
+  var resetWinner = function(winner) {
+    $.get( "http://34.203.61.130/restapi/v1/delete_winner?win="+winner, function(success) {
+        $( "#dataWinner"+winner).html( "" );
+  })
+  .fail(function(err) {
+      alert(JSON.stringify(err));
+    console.log("API error! \n\n"+err);
+  });
+}; 
+    
+    $( "#win3" ).click(function() {
+        setWinner(3);
     });
-  };
+    $( "#win2" ).click(function() {
+        setWinner(2);
+    });
+    $( "#win1" ).click(function() {
+        setWinner(1);
+    });  
+    
+    $( "#resetWinner3" ).click(function() {
+        resetWinner(3);
+    });
+    $( "#resetWinner2" ).click(function() {
+        resetWinner(2);
+    });
+    $( "#resetWinner1" ).click(function() {
+        resetWinner(1);
+    });  
 
-  if (localStorage.getItem('country') !== null && localStorage.getItem('country') != "Costa Rica"){
-      $(location).attr('href', 'https://donaciones.teletoncr.com/');
-    }else{
-      tryAPIGeolocation();
-    }
+});
