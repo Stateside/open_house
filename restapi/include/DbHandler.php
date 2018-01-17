@@ -14,18 +14,11 @@ class DbHandler {
     public function createUser($array){
         try {
             $response = array();
-            $comando = "INSERT INTO `user`(`name`, `last_name`, `phone`)" .
-                " VALUES(?,?,?)";
+            $sentencia =$this->conn->prepare("CALL newUser('".$array['name']."','".$array['last_name']."','".$array['phone']."')");
+            $sentencia->execute();
+            $result = $sentencia->fetch();
 
-            $sentencia = $this->conn->prepare($comando);
-
-            $sentencia->bindParam(1, $array['name']);
-            $sentencia->bindParam(2,$array['last_name']);
-            $sentencia->bindParam(3, $array['phone']);
-
-            $resultado = $sentencia->execute();
-
-            if ($resultado) {
+            if ($result) {
                 $response["error"] = FALSE;
                 $response["message"] = "The user was created";
             } else {
