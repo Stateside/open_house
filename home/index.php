@@ -40,6 +40,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+			<div class="col-md-12 col-xs-12 text-center mt-4">
+				<a href="#" id="listUser">List of users</a>
+				<div id="allUsers"></div>
+			</div>
+		</div>
 	<footer>
 		<div class="container">
 			<div class="row">

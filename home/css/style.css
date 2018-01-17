@@ -92,3 +92,25 @@ h2 {
 footer p{
   font-size: 0.6rem;
 }
+
+#allUsers table{
+  margin: 0 auto;
+}
+
+#allUsers table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#allUsers th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#allUsers  tr:nth-child(even) {background-color: #f2f2f2;}
+
+#allUsers th {
+  background-color: #A1B4DE;
+  color: white;
+}
