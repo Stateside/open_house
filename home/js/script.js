@@ -24,8 +24,7 @@ $( document ).ready(function() {
 
 
 var listUser = function(winner) {
-   // $.get( "http://34.203.61.130/restapi/v1/users", function(success) {
-    $.get( "http://localhost:8888/open_house/restapi/v1/users", function(success) {
+    $.get( "http://34.203.61.130/restapi/v1/users", function(success) {
         var html = '<table><tr><th>Name</th><th>Last Name</th><th>Phone</th><th>Winner</th></tr>';
         var obj = jQuery.parseJSON(JSON.stringify(success));
         jQuery.each(obj.users, function(i, val) {
