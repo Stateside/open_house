@@ -31,6 +31,33 @@ class DbHandler {
         }
     }
 
+    public function listUsers(){
+        try {
+            $response = array();
+            $sentencia =$this->conn->prepare("SELECT `name`, `last_name`, `phone`, `winner` FROM `user`");
+            $sentencia->execute();
+
+            if ($sentencia) {
+                $response["error"] = FALSE;
+                $response["users"] = array();
+                foreach ($sentencia as $row) {
+                    $user = array();
+                    $user["name"] =  $row["name"];
+                    $user["last_name"] =  $row["last_name"];
+                    $user["phone"] =  $row["phone"];
+                    $user["winner"] =  $row["winner"];
+                    array_push($response["users"], $user);
+                }
+            } else {
+                $response["error"] = TRUE;
+                $response["message"] = "Internal Server Error";
+            }
+            return $response;
+        } catch (PDOException $e) {
+            return 'Error: ' . $e->getMessage();
+        }
+    }
+
     public function setWinner($winner){
         try {
             $response = array();

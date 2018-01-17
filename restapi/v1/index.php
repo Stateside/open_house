@@ -16,6 +16,13 @@ require '../libs/Slim/Slim.php';
 $app = new \Slim\Slim();
 
 
+$app->get('/users', function() use ($app) {
+    $db = new DbHandler();
+    $users = $db->listUsers();
+    echoResponse(201, $users);
+});
+
+
 $app->get('/winner', function() use ($app) {
     $db = new DbHandler();
     $winner = $db->setWinner($app->request->get('win'));
